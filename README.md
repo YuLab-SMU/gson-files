@@ -1,5 +1,5 @@
 We proposed a new file format
-[gson](https://CRAN.R-project.org/package=gson)’ for storing gene set
+[gson](https://CRAN.R-project.org/package=gson) for storing gene set
 and related information, and provides read, write and other utilities to
 process this file format. The gson files can be used as the annotation
 input of
