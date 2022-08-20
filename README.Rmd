@@ -10,7 +10,8 @@ output:
 ---
 
 
-```{r echo=FALSE}
+
+```{r echo=FALSE, results="hide", message=FALSE}
 library(yulab.utils)
 library(gson)
 library(clusterProfiler)
@@ -51,16 +52,18 @@ ver <- vapply(gs, function(x) {
 ngs <- vapply(gs, function(x) length(unique(x@gsid2gene$gsid)), numeric(1))
 ng <- vapply(gs, function(x) length(unique(x@gsid2gene$gene)), numeric(1))
 
-d <- tibble::tibble(`Gene Set` = geneSet,
+d <- data.frame(`Gene Set` = geneSet,
                 Terms = ngs,
                 `Gene Coverage` = ng,
                 Species = species,
                 Version = ver,
                 URL = url)
 
-library(kableExtra)
-d %>%
-  knitr::kable() #%>%
+knitr::kable(d)
+
+#library(kableExtra)
+#d %>%
+#  knitr::kable() #%>%
   #kable_styling()
   #kable_material(c("striped", "hover")) %>%
 ```

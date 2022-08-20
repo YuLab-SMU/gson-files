@@ -1,17 +1,3 @@
-    ## 
-
-    ## clusterProfiler v4.5.1.904  For help: https://yulab-smu.top/biomedical-knowledge-mining-book/
-    ## 
-    ## If you use clusterProfiler in published research, please cite:
-    ## T Wu, E Hu, S Xu, M Chen, P Guo, Z Dai, T Feng, L Zhou, W Tang, L Zhan, X Fu, S Liu, X Bo, and G Yu. clusterProfiler 4.0: A universal enrichment tool for interpreting omics data. The Innovation. 2021, 2(3):100141
-
-    ## 
-    ## Attaching package: 'clusterProfiler'
-
-    ## The following object is masked from 'package:stats':
-    ## 
-    ##     filter
-
     ## Warning in !is.null(rmarkdown::metadata$output) && rmarkdown::metadata$output
     ## %in% : 'length(x) = 2 > 1' in coercion to 'logical(1)'
 
@@ -29,13 +15,13 @@ Here is a collection of gene sets stored in `gson` format:
 <thead>
 <tr>
 <th style="text-align:left;">
-Gene Set
+Gene.Set
 </th>
 <th style="text-align:right;">
 Terms
 </th>
 <th style="text-align:right;">
-Gene Coverage
+Gene.Coverage
 </th>
 <th style="text-align:left;">
 Species
@@ -232,12 +218,12 @@ k2 <- GSEA(geneList, gson=kegg, verbose=FALSE)
 head(k2, 2)
 ```
 
-    ##                ID Description setSize enrichmentScore      NES      pvalue
-    ## hsa04110 hsa04110  Cell cycle     115       0.6667235 2.779419 1.00000e-10
-    ## hsa03050 hsa03050  Proteasome      43       0.7094784 2.482797 1.93318e-08
-    ##             p.adjust      qvalues rank                   leading_edge
-    ## hsa04110 3.34000e-08 2.473684e-08 1234 tags=40%, list=10%, signal=36%
-    ## hsa03050 3.22841e-06 2.391038e-06 2516 tags=65%, list=20%, signal=52%
+    ##                ID Description setSize enrichmentScore      NES       pvalue
+    ## hsa04110 hsa04110  Cell cycle     115       0.6667235 2.774256 1.000000e-10
+    ## hsa03050 hsa03050  Proteasome      43       0.7094784 2.412551 1.496984e-08
+    ##              p.adjust      qvalues rank                   leading_edge
+    ## hsa04110 3.340000e-08 2.568421e-08 1234 tags=40%, list=10%, signal=36%
+    ## hsa03050 2.499963e-06 1.922442e-06 2516 tags=65%, list=20%, signal=52%
     ##                                                                                                                                                                                                                        core_enrichment
     ## hsa04110 8318/991/9133/890/983/4085/7272/1111/891/4174/9232/4171/993/990/5347/701/9700/898/23594/4998/9134/4175/4173/10926/6502/994/699/4609/5111/1869/1029/8317/4176/2810/3066/1871/1031/9088/995/1019/4172/5885/11200/7027/1875/7534
     ## hsa03050                                                                               5688/5709/5698/5693/3458/5713/11047/5721/5691/5685/5690/5684/5686/5695/10213/23198/7979/5699/5714/5702/5708/5692/5704/5683/5694/5718/51371/5682
