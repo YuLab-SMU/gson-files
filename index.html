@@ -10,10 +10,10 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 
+<meta name="author" content="Maintained by YuLab-SMU" />
 
-<meta name="date" content="2022-08-19" />
 
-<title>gson: Base Class and Methods for ‘gson’ Format</title>
+<title>Gene Set Libraries</title>
 
 <script>// Pandoc 2.9 adds attributes on both header and div. We remove the former (to
 // be compatible with the behavior of Pandoc < 2.8).
@@ -149,132 +149,239 @@ code span.ot { color: #007020; }
 
 
 <section class="page-header">
-<h1 class="title toc-ignore project-name">gson: Base Class and Methods
-for ‘gson’ Format</h1>
-<h4 class="author project-author">YuLab-SMU</h4>
-<address class="author_afil">
-Southern Medical
-University<br><h4 class="date project-date">2022-08-19</h4>
+<h1 class="title toc-ignore project-name">Gene Set Libraries</h1>
+<h4 class="author project-author">Maintained by YuLab-SMU</h4>
 </section>
 
 
 
 <section class="main-content">
-<p>We proposed a new file format <a href="https://CRAN.R-project.org/package=gson">gson</a> for storing gene
-set and related information, and provides read, write and other
-utilities to process this file format. The gson files can be used as the
-annotation input of <a href="https://bioconductor.org/packages/clusterProfiler/">clusterProfiler</a>
-for enrichment analysis.</p>
-<p>Here we provide some commonly used gson files, and we also welcome
-you to submit more gson files by submitting <a href="https://github.com/YuLab-SMU/gson-files/pulls">pull request</a> or
-send us an email:</p>
-<p>Guangchuang Yu: <a href="mailto:gcyu1@smu.edu.cn" class="email">gcyu1@smu.edu.cn</a></p>
-<p>Erqiang Hu: <a href="mailto:13766876214@163.com" class="email">13766876214@163.com</a></p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(gsonDf, <span class="at">align=</span><span class="st">&quot;c&quot;</span>, <span class="at">caption=</span><span class="st">&quot;GSON files&quot;</span>)</span></code></pre></div>
-<table style="width:100%;">
-<caption>GSON files</caption>
-<colgroup>
-<col width="15%" />
-<col width="39%" />
-<col width="13%" />
-<col width="10%" />
-<col width="21%" />
-</colgroup>
+<pre><code>## </code></pre>
+<pre><code>## clusterProfiler v4.5.1.904  For help: https://yulab-smu.top/biomedical-knowledge-mining-book/
+## 
+## If you use clusterProfiler in published research, please cite:
+## T Wu, E Hu, S Xu, M Chen, P Guo, Z Dai, T Feng, L Zhou, W Tang, L Zhan, X Fu, S Liu, X Bo, and G Yu. clusterProfiler 4.0: A universal enrichment tool for interpreting omics data. The Innovation. 2021, 2(3):100141</code></pre>
+<pre><code>## 
+## Attaching package: &#39;clusterProfiler&#39;</code></pre>
+<pre><code>## The following object is masked from &#39;package:stats&#39;:
+## 
+##     filter</code></pre>
+<pre><code>## Warning in !is.null(rmarkdown::metadata$output) &amp;&amp; rmarkdown::metadata$output
+## %in% : &#39;length(x) = 2 &gt; 1&#39; in coercion to &#39;logical(1)&#39;</code></pre>
+<p>The <code>gson</code> file format was proposed in the CRAN R package
+<a href="https://CRAN.R-project.org/package=gson">gson</a>. This format
+is designed to store gene sets with related information (<em>e.g.</em>,
+gene set name, version, species, etc.).</p>
+<p>The <a href="https://CRAN.R-project.org/package=gson">gson</a>
+package provides a set of utilities to read, write and process
+<code>gson</code> files.</p>
+<p>Here is a collection of gene sets stored in <code>gson</code>
+format:</p>
+<table>
 <thead>
-<tr class="header">
-<th align="center">files</th>
-<th align="center">download</th>
-<th align="center">geneSet</th>
-<th align="center">organism</th>
-<th align="center">version</th>
+<tr>
+<th style="text-align:left;">
+Gene Set
+</th>
+<th style="text-align:right;">
+Terms
+</th>
+<th style="text-align:right;">
+Gene Coverage
+</th>
+<th style="text-align:left;">
+Species
+</th>
+<th style="text-align:left;">
+Version
+</th>
+<th style="text-align:left;">
+URL
+</th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
-<td align="center">GO_ALL_human.gson</td>
-<td align="center"><a href="https://yulab-smu.top/gson-files/GO_ALL_human.gson" class="uri">https://yulab-smu.top/gson-files/GO_ALL_human.gson</a></td>
-<td align="center">Gene Ontology;ALL</td>
-<td align="center">Homo sapiens</td>
-<td align="center">2022-03-10</td>
+<tr>
+<td style="text-align:left;">
+Gene Ontology;ALL
+</td>
+<td style="text-align:right;">
+22834
+</td>
+<td style="text-align:right;">
+20709
+</td>
+<td style="text-align:left;">
+Homo sapiens
+</td>
+<td style="text-align:left;">
+2022-03-10
+</td>
+<td style="text-align:left;">
+<a href="https://yulab-smu.top/gson-files/GO_ALL_human.gson">&lt;img
+src=&quot;img/download-solid.svg&quot; width=&quot;30&quot;&gt;</a>
+</td>
 </tr>
-<tr class="even">
-<td align="center">GO_BP_human.gson</td>
-<td align="center"><a href="https://yulab-smu.top/gson-files/GO_BP_human.gson" class="uri">https://yulab-smu.top/gson-files/GO_BP_human.gson</a></td>
-<td align="center">Gene Ontology;BP</td>
-<td align="center">Homo sapiens</td>
-<td align="center">2022-03-10</td>
+<tr>
+<td style="text-align:left;">
+Gene Ontology;BP
+</td>
+<td style="text-align:right;">
+15947
+</td>
+<td style="text-align:right;">
+18800
+</td>
+<td style="text-align:left;">
+Homo sapiens
+</td>
+<td style="text-align:left;">
+2022-03-10
+</td>
+<td style="text-align:left;">
+<a href="https://yulab-smu.top/gson-files/GO_BP_human.gson">&lt;img
+src=&quot;img/download-solid.svg&quot; width=&quot;30&quot;&gt;</a>
+</td>
 </tr>
-<tr class="odd">
-<td align="center">GO_CC_human.gson</td>
-<td align="center"><a href="https://yulab-smu.top/gson-files/GO_CC_human.gson" class="uri">https://yulab-smu.top/gson-files/GO_CC_human.gson</a></td>
-<td align="center">Gene Ontology;CC</td>
-<td align="center">Homo sapiens</td>
-<td align="center">2022-03-10</td>
+<tr>
+<td style="text-align:left;">
+Gene Ontology;CC
+</td>
+<td style="text-align:right;">
+2009
+</td>
+<td style="text-align:right;">
+19594
+</td>
+<td style="text-align:left;">
+Homo sapiens
+</td>
+<td style="text-align:left;">
+2022-03-10
+</td>
+<td style="text-align:left;">
+<a href="https://yulab-smu.top/gson-files/GO_CC_human.gson">&lt;img
+src=&quot;img/download-solid.svg&quot; width=&quot;30&quot;&gt;</a>
+</td>
 </tr>
-<tr class="even">
-<td align="center">GO_MF_human.gson</td>
-<td align="center"><a href="https://yulab-smu.top/gson-files/GO_MF_human.gson" class="uri">https://yulab-smu.top/gson-files/GO_MF_human.gson</a></td>
-<td align="center">Gene Ontology;MF</td>
-<td align="center">Homo sapiens</td>
-<td align="center">2022-03-10</td>
+<tr>
+<td style="text-align:left;">
+Gene Ontology;MF
+</td>
+<td style="text-align:right;">
+4878
+</td>
+<td style="text-align:right;">
+18410
+</td>
+<td style="text-align:left;">
+Homo sapiens
+</td>
+<td style="text-align:left;">
+2022-03-10
+</td>
+<td style="text-align:left;">
+<a href="https://yulab-smu.top/gson-files/GO_MF_human.gson">&lt;img
+src=&quot;img/download-solid.svg&quot; width=&quot;30&quot;&gt;</a>
+</td>
 </tr>
-<tr class="odd">
-<td align="center">KEGG_human.gson</td>
-<td align="center"><a href="https://yulab-smu.top/gson-files/KEGG_human.gson" class="uri">https://yulab-smu.top/gson-files/KEGG_human.gson</a></td>
-<td align="center">KEGG</td>
-<td align="center">hsa</td>
-<td align="center">Release 103.0+/08-06, Aug 22</td>
+<tr>
+<td style="text-align:left;">
+KEGG
+</td>
+<td style="text-align:right;">
+347
+</td>
+<td style="text-align:right;">
+8164
+</td>
+<td style="text-align:left;">
+hsa
+</td>
+<td style="text-align:left;">
+Release 103.0+/08-06, Aug 22
+</td>
+<td style="text-align:left;">
+<a href="https://yulab-smu.top/gson-files/KEGG_human.gson">&lt;img
+src=&quot;img/download-solid.svg&quot; width=&quot;30&quot;&gt;</a>
+</td>
 </tr>
-<tr class="even">
-<td align="center">MKEGG_human.gson</td>
-<td align="center"><a href="https://yulab-smu.top/gson-files/MKEGG_human.gson" class="uri">https://yulab-smu.top/gson-files/MKEGG_human.gson</a></td>
-<td align="center">KEGG</td>
-<td align="center">hsa</td>
-<td align="center">Release 103.0+/08-06, Aug 22</td>
+<tr>
+<td style="text-align:left;">
+KEGG
+</td>
+<td style="text-align:right;">
+187
+</td>
+<td style="text-align:right;">
+846
+</td>
+<td style="text-align:left;">
+hsa
+</td>
+<td style="text-align:left;">
+Release 103.0+/08-06, Aug 22
+</td>
+<td style="text-align:left;">
+<a href="https://yulab-smu.top/gson-files/MKEGG_human.gson">&lt;img
+src=&quot;img/download-solid.svg&quot; width=&quot;30&quot;&gt;</a>
+</td>
 </tr>
-<tr class="odd">
-<td align="center">Reactome_human.gson</td>
-<td align="center"><a href="https://yulab-smu.top/gson-files/Reactome_human.gson" class="uri">https://yulab-smu.top/gson-files/Reactome_human.gson</a></td>
-<td align="center">reactome pathway</td>
-<td align="center">human</td>
-<td align="center">NA</td>
+<tr>
+<td style="text-align:left;">
+reactome pathway
+</td>
+<td style="text-align:right;">
+2541
+</td>
+<td style="text-align:right;">
+10891
+</td>
+<td style="text-align:left;">
+human
+</td>
+<td style="text-align:left;">
+Version: 81; Source date: 2022-07-06
+</td>
+<td style="text-align:left;">
+<a href="https://yulab-smu.top/gson-files/Reactome_human.gson">&lt;img
+src=&quot;img/download-solid.svg&quot; width=&quot;30&quot;&gt;</a>
+</td>
 </tr>
 </tbody>
 </table>
-<div id="how-to-use-gson-files" class="section level2">
-<h2>How to use gson files</h2>
-<p>We provided <code>read.gson()</code> function in <a href="https://CRAN.R-project.org/package=gson">gson</a> package to read
-gson files, and <code>write.gson</code> to write gson files.</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(clusterProfiler)</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(org.Hs.eg.db)</span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(gson)</span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="co"># use `gson_GO()` function in `clusterProfiler` package(the latest version in Github) to build GSON object.</span></span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>gson_BP_human <span class="ot">&lt;-</span> <span class="fu">gson_GO</span>(<span class="at">OrgDb =</span> org.Hs.eg.db, <span class="at">keytype =</span> <span class="st">&#39;ENTREZID&#39;</span>, <span class="at">ont =</span> <span class="st">&quot;BP&quot;</span>)</span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>gson_MF_human <span class="ot">&lt;-</span> <span class="fu">gson_GO</span>(<span class="at">OrgDb =</span> org.Hs.eg.db, <span class="at">keytype =</span> <span class="st">&#39;ENTREZID&#39;</span>, <span class="at">ont =</span> <span class="st">&quot;MF&quot;</span>)</span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>gson_CC_human <span class="ot">&lt;-</span> <span class="fu">gson_GO</span>(<span class="at">OrgDb =</span> org.Hs.eg.db, <span class="at">keytype =</span> <span class="st">&#39;ENTREZID&#39;</span>, <span class="at">ont =</span> <span class="st">&quot;CC&quot;</span>)</span>
-<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>gson_ALL_human <span class="ot">&lt;-</span> <span class="fu">gson_GO</span>(<span class="at">OrgDb =</span> org.Hs.eg.db, <span class="at">keytype =</span> <span class="st">&#39;ENTREZID&#39;</span>, <span class="at">ont =</span> <span class="st">&quot;ALL&quot;</span>)</span>
-<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a><span class="co"># use `wite.gson()` function to save GSON object to files.</span></span>
-<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a><span class="fu">write.gson</span>(gson_BP_human, <span class="at">file =</span> <span class="st">&quot;GO_BP_human.gson&quot;</span>)</span>
-<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a><span class="fu">write.gson</span>(gson_MF_human, <span class="at">file =</span> <span class="st">&quot;GO_MF_human.gson&quot;</span>)</span>
-<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a><span class="fu">write.gson</span>(gson_CC_human, <span class="at">file =</span> <span class="st">&quot;GO_CC_human.gson&quot;</span>)</span>
-<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a><span class="fu">write.gson</span>(gson_ALL_human, <span class="at">file =</span> <span class="st">&quot;GO_ALL_human.gson&quot;</span>)</span></code></pre></div>
-<p>The <code>clusterProfiler</code> package of laster version in <a href="https://github.com/YuLab-SMU/clusterProfiler">Github</a> support
-passing a GSON object to <code>enricher(gson)</code> and
-<code>GSEA(gson)</code>:</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># use `read.gson()` function to read gson files</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>gson_BP_human <span class="ot">&lt;-</span> <span class="fu">read.gson</span>(<span class="st">&quot;GO_BP_human.gson&quot;</span>)</span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>gson_MF_human <span class="ot">&lt;-</span> <span class="fu">read.gson</span>(<span class="st">&quot;GO_MF_human.gson&quot;</span>)</span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>gson_CC_human <span class="ot">&lt;-</span> <span class="fu">read.gson</span>(<span class="st">&quot;GO_CC_human.gson&quot;</span>)</span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>gson_ALL_human <span class="ot">&lt;-</span> <span class="fu">read.gson</span>(<span class="st">&quot;GO_ALL_human.gson&quot;</span>)</span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(geneList, <span class="at">package=</span><span class="st">&quot;DOSE&quot;</span>)</span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>gene <span class="ot">&lt;-</span> <span class="fu">names</span>(geneList)[<span class="fu">abs</span>(geneList) <span class="sc">&gt;</span> <span class="dv">2</span>]</span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">enricher</span>(gene, <span class="at">gson =</span> gson_BP_human)</span>
-<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(x)</span>
-<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="fu">GSEA</span>(geneList, <span class="at">gson =</span> gson_BP_human)</span>
-<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(y)</span></code></pre></div>
-</div>
+<p>Users can download the file and use it as background annotation in <a href="http://bioconductor.org/packages/clusterProfiler">clusterProfiler</a>
+package to perform enrichment analysis.</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(gson)</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>kegg <span class="ot">&lt;-</span> <span class="fu">read.gson</span>(<span class="st">&quot;KEGG_human.gson&quot;</span>)</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(clusterProfiler)</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(geneList, <span class="at">package=</span><span class="st">&quot;DOSE&quot;</span>)</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>de <span class="ot">=</span> <span class="fu">names</span>(geneList)[<span class="fu">abs</span>(geneList) <span class="sc">&gt;</span> <span class="dv">2</span>] <span class="co"># select fold change &gt; 2 as DEG</span></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>k1 <span class="ot">&lt;-</span> <span class="fu">enricher</span>(de, <span class="at">gson=</span>kegg)</span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(k1, <span class="dv">2</span>)</span></code></pre></div>
+<pre><code>##                ID    Description GeneRatio  BgRatio       pvalue     p.adjust
+## hsa04110 hsa04110     Cell cycle     11/94 126/8164 1.781113e-07 3.740338e-05
+## hsa04114 hsa04114 Oocyte meiosis     10/94 131/8164 2.312516e-06 2.428142e-04
+##                qvalue                                             geneID Count
+## hsa04110 3.655969e-05 8318/991/9133/890/983/4085/7272/1111/891/4174/9232    11
+## hsa04114 2.373372e-04    991/9133/983/4085/51806/6790/891/9232/3708/5241    10</code></pre>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>k2 <span class="ot">&lt;-</span> <span class="fu">GSEA</span>(geneList, <span class="at">gson=</span>kegg, <span class="at">verbose=</span><span class="cn">FALSE</span>)</span></code></pre></div>
+<pre><code>## Warning in fgseaMultilevel(...): For some pathways, in reality P-values are less
+## than 1e-10. You can set the `eps` argument to zero for better estimation.</code></pre>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(k2, <span class="dv">2</span>)</span></code></pre></div>
+<pre><code>##                ID Description setSize enrichmentScore      NES       pvalue
+## hsa04110 hsa04110  Cell cycle     115       0.6667235 2.746379 1.000000e-10
+## hsa03050 hsa03050  Proteasome      43       0.7094784 2.433924 2.033607e-08
+##              p.adjust      qvalues rank                   leading_edge
+## hsa04110 3.340000e-08 2.410526e-08 1234 tags=40%, list=10%, signal=36%
+## hsa03050 3.396123e-06 2.451031e-06 2516 tags=65%, list=20%, signal=52%
+##                                                                                                                                                                                                                        core_enrichment
+## hsa04110 8318/991/9133/890/983/4085/7272/1111/891/4174/9232/4171/993/990/5347/701/9700/898/23594/4998/9134/4175/4173/10926/6502/994/699/4609/5111/1869/1029/8317/4176/2810/3066/1871/1031/9088/995/1019/4172/5885/11200/7027/1875/7534
+## hsa03050                                                                               5688/5709/5698/5693/3458/5713/11047/5721/5691/5685/5690/5684/5686/5695/10213/23198/7979/5699/5714/5702/5708/5692/5704/5683/5694/5718/51371/5682</code></pre>
+<p>You are welcome to share your gson file with the community. Please
+create a <a href="https://github.com/YuLab-SMU/gson-files/pulls">pull
+request</a>.</p>
 </section>
 
 

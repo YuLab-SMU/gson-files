@@ -24,28 +24,3 @@ Reactome_human <- gson_Reactome(organism = "human")
 write.gson(Reactome_human, file = "Reactome_human.gson")
 
 
-
-
-# build gsonDf
-files <- list.files(pattern = "\\.gson$")
-fileDownload <- paste0("https://yulab-smu.top/gson-files/", files)
-geneSet <- organism <- version <- rep(NA, length(files))
-for (i in seq_len(length(files))) {
-    y <- read.gson(files[i])
-    if (!is.null(y@gsname) & length(y@gsname) > 0) {
-        geneSet[i] <- y@gsname
-    }
-    
-    if (!is.null(y@species) & length(y@species) > 0) {
-      organism[i] <- y@species
-    }
-    
-    
-    if (!is.null(y@version ) & length(y@version ) > 0) {
-        version[i] <- y@version    
-    }
-    
-}
-
-gsonDf <- data.frame(files, fileDownload, geneSet, organism, version)
-

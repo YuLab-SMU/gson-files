@@ -1,0 +1,93 @@
+---
+title: "Gene Set Libraries"
+author: "Maintained by YuLab-SMU"
+output:
+  prettydoc::html_pretty:
+    theme: cayman
+    highlight: github
+  pdf_document:
+    toc: true
+---
+
+
+```{r echo=FALSE}
+library(yulab.utils)
+library(gson)
+library(clusterProfiler)
+library(kableExtra)
+```
+
+The `gson` file format was proposed in the CRAN R package `r CRANpkg("gson")`. 
+This format is designed to store gene sets with related information (*e.g.*, gene set name, version, species, etc.). 
+
+The `r CRANpkg("gson")` package provides a set of utilities to read, write and process `gson` files.
+
+Here is a collection of gene sets stored in `gson` format:
+
+
+
+```{r echo=FALSE}
+# build gsonDf
+files <- list.files(pattern = "\\.gson$")
+fileDownload <- paste0("https://yulab-smu.top/gson-files/", files)
+#icon <- paste0(icons::icon_style(icons::fontawesome("download"), fill='red'))
+#icon <- paste0(icons::fontawesome("download", style = "solid"))
+icon <- 'img/download-solid.svg'
+#url <- glue::glue("[![]({icon})]({fileDownload})")
+url <- glue::glue('[<img src="{icon}" width="30">]({fileDownload})')
+
+library(gson)
+gs <- lapply(files, read.gson)
+geneSet <- vapply(gs, function(x) x@gsname, character(1))
+species <- vapply(gs, function(x) x@species, character(1))
+ver <- vapply(gs, function(x) {
+    res <- x@version
+    if (length(res) == 0) {
+        return(" ")
+    }
+    return(res)
+}, character(1))
+
+ngs <- vapply(gs, function(x) length(unique(x@gsid2gene$gsid)), numeric(1))
+ng <- vapply(gs, function(x) length(unique(x@gsid2gene$gene)), numeric(1))
+
+d <- tibble::tibble(`Gene Set` = geneSet,
+                Terms = ngs,
+                `Gene Coverage` = ng,
+                Species = species,
+                Version = ver,
+                URL = url)
+
+library(kableExtra)
+d %>%
+  knitr::kable() #%>%
+  #kable_styling()
+  #kable_material(c("striped", "hover")) %>%
+```
+
+
+
+
+
+Users can download the file and use it as background annotation in `r Biocpkg("clusterProfiler")` package to perform enrichment analysis. 
+ 
+
+```{r}
+library(gson)
+kegg <- read.gson("KEGG_human.gson")
+
+library(clusterProfiler)
+data(geneList, package="DOSE")
+de = names(geneList)[abs(geneList) > 2] # select fold change > 2 as DEG
+k1 <- enricher(de, gson=kegg)
+head(k1, 2)
+
+k2 <- GSEA(geneList, gson=kegg, verbose=FALSE)
+head(k2, 2)
+```
+
+
+You are welcome to share your gson file with the community. Please create a [pull
+request](https://github.com/YuLab-SMU/gson-files/pulls). 
+
+
