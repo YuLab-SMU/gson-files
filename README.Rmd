@@ -11,11 +11,11 @@ output:
 
 
 
-```{r echo=FALSE, results="hide", message=FALSE}
+```{r echo=FALSE, results="hide", message=FALSE, warning=FALSE}
 library(yulab.utils)
 library(gson)
 library(clusterProfiler)
-library(kableExtra)
+#library(kableExtra)
 ```
 
 The `gson` file format was proposed in the CRAN R package `r CRANpkg("gson")`. 
@@ -35,7 +35,7 @@ fileDownload <- paste0("https://yulab-smu.top/gson-files/", files)
 #icon <- paste0(icons::fontawesome("download", style = "solid"))
 icon <- 'img/download-solid.svg'
 #url <- glue::glue("[![]({icon})]({fileDownload})")
-url <- glue::glue('[<img src="{icon}" width="30">]({fileDownload})')
+url <- glue::glue('[<img src="https://yulab-smu.top/gson-files/{icon}" width="30"/>]({fileDownload})')
 
 library(gson)
 gs <- lapply(files, read.gson)
@@ -52,20 +52,22 @@ ver <- vapply(gs, function(x) {
 ngs <- vapply(gs, function(x) length(unique(x@gsid2gene$gsid)), numeric(1))
 ng <- vapply(gs, function(x) length(unique(x@gsid2gene$gene)), numeric(1))
 
-d <- data.frame(`Gene Set` = geneSet,
+d <- tibble::tibble(`Gene Set` = geneSet,
                 Terms = ngs,
                 `Gene Coverage` = ng,
                 Species = species,
                 Version = ver,
                 URL = url)
 
-knitr::kable(d)
+
 
 #library(kableExtra)
 #d %>%
 #  knitr::kable() #%>%
   #kable_styling()
   #kable_material(c("striped", "hover")) %>%
+
+knitr::kable(d)  
 ```
 
 
